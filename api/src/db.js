@@ -34,7 +34,7 @@ const { Recipe, Diet } = sequelize.models;
 
 
 Recipe.beforeValidate(recipe => {
-  recipe.id = recipe.title.split(" ").join("-") + '-' + Date.now().toString().slice(-8) + '_cstm';
+  recipe.id = recipe.title.split(" ").join("-") + '-' + Date.now().toString().slice(-5) + '_cstm_' + Math.round(Math.random()*2000);
 })
 
 
