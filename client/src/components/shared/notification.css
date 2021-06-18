@@ -1,0 +1,20 @@
+.notification {
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 2px 10px 20px 0px rgb(151, 160, 152);
+    padding: 30px 20px;
+    width: 12rem;
+    background-color: rgb(78, 187, 93);
+    color: white;
+    right: 100px;
+    top: 20px;
+    transition: 1s ease;
+    cursor: pointer;
+    z-index: 1500;
+    animation: fadein 0.5s;
+    -webkit-animation: fadein 0.5s;
+}
+
+.notificationDanger {
+    background-color: tomato;
+}

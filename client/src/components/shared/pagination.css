@@ -1,0 +1,52 @@
+
+.pagContainer {
+    display: flex;
+    /* width: 100%; */
+    justify-content: center;
+    margin-top: 40px;
+    text-align: center;
+    color: var(--primaryDarken);
+}
+
+.pagContainer > * {
+    margin: 10px;
+}
+.pagContainer > p {
+    cursor: pointer;
+}
+
+.pagContainer ul {
+    padding: 0;
+}
+.pagContainer ul li {
+    list-style-type: none;
+    display: inline;
+    margin: 5px;
+    border: 1px solid var(--primary);
+    padding: 7px;
+    cursor: pointer;
+}
+
+.pageSelected {
+    background-color: var(--primaryDarken);
+    color: white;
+    cursor: grab;
+}
+.pageSelected:hover {
+    cursor: default;
+}
+
+.firstLastBtn {
+    border: none;
+    background-color: var(--primaryLighten);
+    color: var(--primaryDarken);
+    cursor: pointer;
+    font-size: 15px;
+}
+.firstLastBtn:disabled {
+    color: gray;
+}
+
+.loadingPaginator {
+    color: gray;
+}

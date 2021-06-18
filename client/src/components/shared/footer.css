@@ -1,0 +1,13 @@
+
+
+.footer {
+    padding: 10px;
+    /* margin: 70px 0px 0px 5px; */
+    /* width: 98vw; */
+    background-color: var(--primary);
+    color: white;
+
+    user-select: none;
+    margin-top: 70px;
+
+}

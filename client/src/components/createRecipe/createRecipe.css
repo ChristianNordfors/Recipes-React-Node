@@ -1,0 +1,391 @@
+
+.errorContainer {
+  width: fit-content;
+  background-color: rgb(238, 201, 201);
+  padding: 10px;
+  border: 1px solid lightcoral;
+  border-radius: 5px;
+  color: lightcoral;
+  font-weight: bold;
+}
+
+
+.formCreate {
+    /* border: 1px solid var(--primary); */
+    padding: 20px;
+    /* width: 100%; */
+    border-radius: 5px;
+}
+
+.inputWithDiets {
+    display: flex;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 30rem;
+    /* justify-content: space-between; */
+    /* width: 45rem; */
+}
+
+.form-input {
+    flex-grow: 2;
+    border-radius: 5px;
+    border: 1px solid rgb(130, 187, 182);
+    /* transition: 0.1s ease; */
+    padding: 5px;
+}
+.form-input:hover {
+    border: 1px solid rgb(39, 141, 132);
+}
+.form-input:focus {
+    border: 2px solid rgb(89, 177, 171);
+    outline: none;
+}
+
+.inputWithDiets input  {
+    height: 30px;
+}
+.inputWithDiets textarea  {
+    height: 70px;
+}
+
+
+
+.form-label {
+    width: 170px;
+    color: var(--primaryDarken);
+    font-weight: bold;
+}
+
+.formCreate button {
+    width: 100%;
+    background-color: var(--primary);
+    border: none;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.formCreate button:hover {
+    background-color: rgb(106, 187, 187);
+}
+.formCreate button:focus {
+    background-color: rgb(88, 185, 185);
+}
+.formCreate button:disabled {
+  opacity: 0.5;
+}
+
+
+
+.form-group {
+    height: 8em;
+    width: 35vw;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(171, 196, 202);
+}
+.form-group:last-child {
+    border-bottom: none;
+}
+
+
+.searchDietContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Search diets */
+
+
+.searchDietContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+.searchDietContainer h3 {
+    color: var(--primaryDarken);
+  }
+  
+
+  .searchDietContainer input {
+    width: 250px;
+    border: none;
+    border-radius: 2px;
+    height: 20px;
+    padding: 10px;
+    background-color: var(--primaryLighten);
+    outline: none;
+  }
+  
+  .dietsSelectList {
+    width: 300px;
+    z-index: 500;
+    opacity: 0.9;
+    /* overflow-y: auto; */
+  }
+  
+  .searchDietContainer select {
+    border: none;
+    position: absolute;
+    overflow: auto;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 2px rgb(172, 207, 207);
+    outline: none;
+  }
+    
+  .searchDietContainer select > * {
+    padding: 10px;
+    font-size: 15px;
+    text-transform: capitalize;
+  }
+  
+  .searchDietContainer select > *:hover {
+    background-color: var(--primary);
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .checkboxContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    margin: 10px 0px;
+    width: fit-content;
+  }
+
+  .checkboxContainer input[type='checkbox'] {
+    width: 2rem;
+    cursor: pointer;
+  }
+
+  .checkboxContainer label {
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .checkboxContainer .checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    width: 19em;
+    margin: 5px 0px;
+    align-items: center;
+    color: var(--primaryDarken);
+  }
+  .checkboxContainer .checkbox-group:hover {
+    background-color: rgb(182, 206, 212);
+    border-radius: 3px;
+  }
+   
+  .inputWithButtonContainer {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid var(--primary);
+    transition: 0.3s ease;
+  }
+  
+  .inputWithButtonContainer:hover {
+    border-bottom: 2px solid var(--primaryDarken);
+  }
+  
+  .inputWithButtonContainer span {
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    color: rgb(138, 129, 129);
+    font-size: 20px;
+    background-color: var(--primaryLighten);
+  }
+  .inputWithButtonContainer span:hover {
+    color:rgb(196, 65, 65);
+  }
+  
+  
+  
+  
+  
+  /* Select  */
+  
+  .dietsSelectedContainer {
+      margin-top: 20px;
+      border: 1px solid var(--primary);
+      border-radius: 5px;
+      padding: 7px;
+      width: 18rem;
+      background-color: rgb(205, 232, 236);
+  }
+
+
+.dietsSelectedContainer p {
+    width: 100%;
+    text-transform: capitalize;
+    color: var(--primaryDarken);
+}
+
+.dietSelected {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    border-bottom: 1px solid rgb(185, 209, 214);
+    padding: 5px;
+}
+.dietSelected:last-child {
+  border-bottom: none;
+}
+.dietSelected:hover {
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+
+.dietsSelectedContainer button {
+    /* border: 2px solid var(--primaryDarken); */
+    height: 30px;
+    /* box-shadow: 1px 0 1px 1px rgb(204, 157, 196); */
+    border-radius: 5px;
+    background-color: var(--primaryDarken);
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease;
+    width: 3rem;
+}
+.dietsSelectedContainer button:hover {
+    background-color: rgb(53, 146, 155);
+}
+.dietsSelectedContainer button:focus {
+    box-shadow: inset 1px 2px 2px 2px var(--primaryDarken);
+}
+
+
+
+/* Instructions and steps */
+
+.instructionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: var(--primaryDarken);
+  border-top: 1px solid rgb(177, 207, 212);
+}
+
+.instructionsContainer .stepContainer {
+  /* margin: px 0px; */
+  width: 100%;
+}
+
+.stepContainer {
+  background-color: rgb(193, 221, 226);
+  padding: 5px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  transition: .1s ease-out;
+
+  animation: fadein 0.5s;
+  -webkit-animation: fadein 0.5s;
+}
+
+.stepContainer textarea {
+  width: 99.3%;
+  height: 4rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px 1px rgb(190, 205, 209);
+  padding: 5px;
+}
+.stepContainer textarea:focus {
+  outline: none;
+  box-shadow: 0px 1px 1px 1px var(--primary);
+}
+
+/* .instructionsContainer h2 {
+  color: var(--primaryDarken);
+  font-size: 30px;
+} */
+
+.stepHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.stepHeader button{
+  width: fit-content;
+  background-color: lightcoral;
+}
+.stepHeader button:hover{
+  background-color: rgb(240, 140, 140)
+}
+.stepHeader button:focus{
+  background-color: lightcoral
+}
+
+.instructionsContainer .btnAddStep {
+  margin-bottom: 40px;
+}
+
+
+.instructionsBtnsContainer {
+  display: flex;
+  align-items: center;
+}
+
+
+.upDownBtns {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+}
+.upDownBtns button {
+  background-color: var(--primaryDarken);
+  height: 1.7rem;
+  text-align: center;
+  /* margin: 2px; */
+  margin-right: 10px;
+  padding: 0px;
+  font-size: 30px;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upDownBtns button:hover {
+  background-color: var(--primary);
+}
+.upDownBtns button:focus {
+  background-color: var(--primaryDarken);
+}
+
+
+.swapping {
+  background-color: lightskyblue;
+}
+
+
+
+
+@media (max-width: 1500px) {
+  .inputWithDiets {
+    flex-direction: column;
+  }
+  .form-group {
+    width: auto;
+  }
+}
