@@ -22,6 +22,9 @@
 - HTML
 - CSS
 - Redux
+- Express
+- Sequelize
+- PostgreSQL
 
 ![recipe-landing](https://user-images.githubusercontent.com/53587594/127255229-00f847f2-7e61-432b-b545-4ea882d60e4d.png)
 ![home-recipe](https://user-images.githubusercontent.com/53587594/127255233-66013543-9526-4616-981a-1fac437220da.png)
