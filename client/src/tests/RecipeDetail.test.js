@@ -52,7 +52,7 @@ const { recipe } = renderWithRouter(<RecipeDetail></RecipeDetail>);
 
 
 
-xdescribe('Recipe Detail page', () => {
+describe('Recipe Detail page', () => {
     describe('getRecipe function', () => {
         test('should fetch the proper recipe by the given id', (done) => {
             getRecipe('500')

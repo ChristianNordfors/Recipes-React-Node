@@ -29,42 +29,37 @@ export default function recipesReducer(state = initialState, action) {
             }
 
         case FILTER_BY_DIETS:
-            const query = new URLSearchParams(window.location.search);
-            const name = query.get('name') || '';
+            // const query = new URLSearchParams(window.location.search);
+            // const name = query.get('name') || '';
 
-            let filteredA = [];
+            // let filteredA = [];
 
-            if (name) {
-                state.recipesSearchByName?.forEach(rd => {
-                    rd.diets.filter(d => {
-                        if (!d.hasOwnProperty('name') ? d === action.payload.toLowerCase() : d.name === action.payload.toLowerCase()) {
-                        return filteredA.push(rd);
-                        } else {
-                            return ''
-                        }
-                    })
-                })
-            } else {
-                state.recipesLoaded.recipes.forEach(rd => {
-                    rd.diets.filter(d => {
-                        if (!d.hasOwnProperty('name') ? d === action.payload.toLowerCase() : d.name === action.payload.toLowerCase()) {
-                            return filteredA.push(rd);
-                        } else {
-                            return ''
-                        }
-                    })
-                })
-            }
-
-            // let filteredFinal = new Set([...filteredA, ...filteredB])
-
-            // filteredFinal = [...filteredFinal]
-            // filteredA = [];
-            // filteredB = [];
+            // if (name) {
+            //     state.recipesSearchByName?.forEach(rd => {
+            //         rd.diets.filter(d => {
+            //             if (!d.hasOwnProperty('name') ? d === action.payload.toLowerCase() : d.name === action.payload.toLowerCase()) {
+            //             return filteredA.push(rd);
+            //             } else {
+            //                 return ''
+            //             }
+            //         })
+            //     })
+            // } else {
+            //     state.recipesLoaded.recipes.forEach(rd => {
+            //         rd.diets.filter(d => {
+            //             if (!d.hasOwnProperty('name') ? d === action.payload.toLowerCase() : d.name === action.payload.toLowerCase()) {
+            //                 return filteredA.push(rd);
+            //             } else {
+            //                 return ''
+            //             }
+            //         })
+            //     })
+            // }
 
             return {
                 ...state,
-                filtered: filteredA
+                // filtered: filteredA
+                filtered: action.payload
             }
 
         case CLEAN_FILTER_BY_DIETS:

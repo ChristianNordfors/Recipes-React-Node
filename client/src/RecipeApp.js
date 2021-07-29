@@ -17,12 +17,10 @@ function RecipeApp() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log('ASDASDASDAS');
     dispatch(getDiets());
   }, [dispatch]);
 
   useEffect(() => {
-    // console.log('ASDASDASDAS');
     dispatch(startGetRecipes());
   }, [dispatch]);
 

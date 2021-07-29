@@ -15,7 +15,13 @@ export const createRecipe = async (recipe) => {
 };
 
 export const getRecipes = async (page) => {
-    return await axios.get(`${URL}` + (page ? `?page=${page}` : ''));
+    // return await axios.get(`${URL}` + (page ? `?page=${page}` : ''));
+    
+
+    return await axios.get(URL, 
+        { params: page })
+    
+    // localhost:3000?page=3
 };
 
 export const getRecipesOrder = async (page = '0', order) => {

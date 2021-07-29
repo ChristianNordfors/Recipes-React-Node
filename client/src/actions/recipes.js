@@ -59,7 +59,6 @@ export function startGetRecipesOrder(page, order) {
     return function (dispatch) {
         return getRecipesOrder(page, order)
             .then(({ data }) => {
-                console.log(data);
                 dispatch({ type: GET_RECIPES_ORDERED, payload: data });
             }).catch(error => {
                 console.log(error);
@@ -69,13 +68,31 @@ export function startGetRecipesOrder(page, order) {
 
 
 export function filterByDiets(diet) {
-    return function(dispatch) {
-        dispatch({ type: FILTER_BY_DIETS, payload: diet });
+    return function (dispatch, getState) {
+        const recipes = getState().recipes;
+
+        const query = new URLSearchParams(window.location.search);
+        const name = query.get('name') || '';
+
+        let filteredA = [];
+
+        (name ? recipes.recipesSearchByName : recipes.recipesLoaded.recipes).forEach(rd => {
+            rd.diets.filter(d => {
+                if (!d.hasOwnProperty('name') ? d === diet.toLowerCase() : d.name === diet.toLowerCase()) {
+                    return filteredA.push(rd);
+                } else {
+                    return ''
+                }
+            })
+        })
+
+        // dispatch({ type: FILTER_BY_DIETS, payload: diet });
+        dispatch({ type: FILTER_BY_DIETS, payload: filteredA });
     }
 }
 
 export function cleanFilterByDiets() {
-    return function(dispatch) {
+    return function (dispatch) {
         dispatch({ type: CLEAN_FILTER_BY_DIETS, payload: [] });
     }
 }

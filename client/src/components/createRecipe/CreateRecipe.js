@@ -37,27 +37,27 @@ export default function CreateRecipe() {
     const diets = useSelector(state => state.diets.dietsLoaded);
 
     const { title, summary, spoonacularScore, healthScore, vegetarian, vegan, glutenFree, analyzedInstructions } = form;
+    
 
     useEffect(() => {
         window.addEventListener('click', openCloseListListener);
         return () => window.removeEventListener('click', openCloseListListener);
     }, []);
+    
+    useEffect(() => {
+        filterDiets();
+    }, [searchInput, dietsCompare]);
+    
+    useEffect(() => {
+        setSteps();
+    }, [steps]);
+    
 
     const openCloseListListener = (event) => {
         if (event.target.id !== 'diets-selection') {
             setShowSelect(false)
         }
     };
-
-    useEffect(() => {
-        filterDiets();
-    }, [searchInput, dietsCompare]);
-
-
-    useEffect(() => {
-        setSteps();
-    }, [steps]);
-
 
     const handleForm = (e) => {
         if (["step"].includes(e.target.className)) {
