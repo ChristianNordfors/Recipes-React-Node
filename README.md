@@ -16,6 +16,7 @@
 - Filtrados y ordenamientos
 - Detalle de las recetas
 - Paginación
+- Notificaciones
 
 ### Realizado con:
 - React
