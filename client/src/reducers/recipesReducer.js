@@ -29,36 +29,9 @@ export default function recipesReducer(state = initialState, action) {
             }
 
         case FILTER_BY_DIETS:
-            // const query = new URLSearchParams(window.location.search);
-            // const name = query.get('name') || '';
-
-            // let filteredA = [];
-
-            // if (name) {
-            //     state.recipesSearchByName?.forEach(rd => {
-            //         rd.diets.filter(d => {
-            //             if (!d.hasOwnProperty('name') ? d === action.payload.toLowerCase() : d.name === action.payload.toLowerCase()) {
-            //             return filteredA.push(rd);
-            //             } else {
-            //                 return ''
-            //             }
-            //         })
-            //     })
-            // } else {
-            //     state.recipesLoaded.recipes.forEach(rd => {
-            //         rd.diets.filter(d => {
-            //             if (!d.hasOwnProperty('name') ? d === action.payload.toLowerCase() : d.name === action.payload.toLowerCase()) {
-            //                 return filteredA.push(rd);
-            //             } else {
-            //                 return ''
-            //             }
-            //         })
-            //     })
-            // }
 
             return {
                 ...state,
-                // filtered: filteredA
                 filtered: action.payload
             }
 
