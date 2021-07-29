@@ -1,6 +1,9 @@
+
 const { default: axios } = require('axios');
 const { Recipe, Diet } = require('../db');
 const { API_KEY } = process.env;
+
+
 
 const list = async (req, res) => {
 
@@ -13,34 +16,28 @@ const list = async (req, res) => {
                 ['createdAt', 'DESC']
             ]
         });
+        
+        const { data } = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`);
 
-        // const { data } = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100`);
+        const recipesSpoonacular = data.results;
 
-        // const recipesSpoonacular = data.results;
-
-        // let recipesTotal = await Promise.all([recipesCustom]);
-
-        // recipesTotal = recipesTotal[0];
-
-        let recipesTotal = [...recipesCustom];
-
+        const recipesTotal = [...recipesCustom, ...recipesSpoonacular];
 
         if (name) {
             let filteredRecipes = recipesTotal.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()));
             filteredRecipes = filteredRecipes.slice(0, 9);
 
             if (!filteredRecipes.length) {
-                return res.status(404).json({
+                return res.json({
                     ok: false,
                     msg: 'No se encontraron recetas'
                 })
             }
 
-            return res.status(200).json({
+            return res.json({
                 ok: true,
                 recipes: filteredRecipes
             });
-
 
         } else {
 
@@ -59,30 +56,14 @@ const list = async (req, res) => {
                     recipesTotal.sort((a, b) => b.spoonacularScore - a.spoonacularScore);
                     break;
             }
-
-            // if (order === 'A-z') {
-            //     recipesTotal.sort((a, b) => a.title.toLowerCase() < b.title.toLowerCase() ? - 1 : a.title.toLowerCase() > b.title.toLowerCase());
-            // }
-            // if (order === 'Z-a') {
-            //     recipesTotal.sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? - 1 : a.title.toLowerCase() < b.title.toLowerCase());
-            // }
-            // if (order === 'Min score') {
-            //     recipesTotal.sort((a, b) => a.spoonacularScore - b.spoonacularScore);
-            // }
-            // if (order === 'Max score') {
-            //     console.log('MAX');
-            //     recipesTotal.sort((a, b) => b.spoonacularScore - a.spoonacularScore);
-            // }
-
-
+            
             let page = Number(req.query.page) || 0;
 
             let from = page * 10;
 
             let recipesPaginated = recipesTotal.slice(from, from + 10)
 
-
-            return res.status(200).json({
+            return res.json({
                 ok: true,
                 page,
                 recipes: recipesPaginated,
@@ -92,95 +73,14 @@ const list = async (req, res) => {
         }
 
     } catch (error) {
-        // console.log(error);
-        return res.status(500).json({
+        console.log(error);
+        return res.json({
             ok: false,
-            msg: 'Ocurrió un error al listar las recetas',
-            error
+            msg: 'Ocurrió un error al listar las recetas'
         });
     }
 
 };
-
-
-
-
-// const list = async (req, res) => {
-
-//     const { name, order } = req.query;
-
-//     try {
-//         const recipesCustom = await Recipe.findAll({
-//             include: { model: Diet },
-//             order: [
-//                 ['createdAt', 'DESC']
-//             ]
-//         });
-//         const { data } = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=3&addRecipeInformation=true`);
-
-//         const recipesSpoonacular = data.results;
-
-//         const recipesTotal = [...recipesCustom, ...recipesSpoonacular];
-
-//         if (name) {
-//             let filteredRecipes = recipesTotal.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()));
-//             filteredRecipes = filteredRecipes.slice(0, 9);
-
-//             if (!filteredRecipes.length) {
-//                 return res.json({
-//                     ok: false,
-//                     msg: 'No se encontraron recetas'
-//                 })
-//             }
-
-//             return res.json({
-//                 ok: true,
-//                 recipes: filteredRecipes
-//             });
-
-//         } else {
-
-//             switch (order) {
-//                 case 'A-z':
-//                     // recipesTotal.sort((a, b) => a.title < b.title ? - 1 : Number(a.title > b.title))
-//                     recipesTotal.sort((a, b) => a.title.toLowerCase() < b.title.toLowerCase() ? - 1 : a.title.toLowerCase() > b.title.toLowerCase());
-//                     break;
-//                 case 'Z-a':
-//                     recipesTotal.sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? - 1 : a.title.toLowerCase() < b.title.toLowerCase());
-//                     break;
-//                 case 'Min score':
-//                     recipesTotal.sort((a, b) => a.spoonacularScore - b.spoonacularScore);
-//                     break;
-//                 case 'Max score':
-//                     recipesTotal.sort((a, b) => b.spoonacularScore - a.spoonacularScore);
-//                     break;
-//             }
-
-
-//             let page = Number(req.query.page) || 0;
-
-//             let from = page * 10;
-
-//             let recipesPaginated = recipesTotal.slice(from, from + 10)
-
-//             return res.json({
-//                 ok: true,
-//                 page,
-//                 recipes: recipesPaginated,
-//                 number: recipesPaginated.length,
-//                 total: recipesTotal.length
-//             });
-//         }
-
-//     } catch (error) {
-//         console.log(error);
-//         return res.json({
-//             ok: false,
-//             msg: 'Ocurrió un error al listar las recetas'
-//         });
-//     }
-
-// };
 
 
 const create = async (req, res) => {
