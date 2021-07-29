@@ -10,6 +10,7 @@
 
 ## Instancia evaluativa del Bootcamp Henry
 
+- <b>Consume la API de Spoonacular</b>
 - Buscador de recetas
 - Crea tu propia receta
 - Filtrados y ordenamientos
